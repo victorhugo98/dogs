@@ -1,0 +1,21 @@
+.wrapper {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 1000;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+ 
+}
+.loading {
+  margin: auto;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 5px;
+}
