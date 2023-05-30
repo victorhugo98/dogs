@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import Login from "./Components/Login/Login";
@@ -12,7 +12,7 @@ import UserProfile from "./Components/User/UserProfile";
 import NotFound from "./Components/Helper/NotFound";
 
 function App() {
-  
+
   return (
     <div className="App">
       <BrowserRouter>
