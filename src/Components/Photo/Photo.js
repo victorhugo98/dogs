@@ -4,10 +4,11 @@ import useFetch from "../../Hooks/useFetch";
 import { PHOTO_GET } from "../../api";
 import PhotoContent from "./PhotoContent";
 import Error from "../Helper/Error";
+import Head from "../Helper/Head";
 const Photo = () => {
   const { id } = useParams();
   const { request, data, loading, error } = useFetch();
-  if (data) console.log(data);
+  
   React.useEffect(() => {
     const { url } = PHOTO_GET(id);
     const { response } = request(url);
@@ -18,6 +19,8 @@ const Photo = () => {
   if (data)
     return (
       <section className="container mainContainer">
+        <Head titulo={data.photo.title} />
+
         <PhotoContent data={data} single={true} />
       </section>
     );

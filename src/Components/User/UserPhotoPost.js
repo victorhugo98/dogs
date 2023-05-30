@@ -7,6 +7,7 @@ import useFetch from "../../Hooks/useFetch";
 import { PHOTO_POST } from "../../api";
 import Error from "../Helper/Error";
 import { useNavigate } from "react-router-dom";
+import Head from "../Helper/Head";
 
 const UserPhotoPost = () => {
   const nome = useForm();
@@ -30,7 +31,7 @@ const UserPhotoPost = () => {
     const token = window.localStorage.getItem("token");
     const { url, options } = PHOTO_POST(formData, token);
     const { response, json } = await request(url, options);
-    console.log(json)
+
   }
 
   function handleImgChange({ target }) {
@@ -42,6 +43,7 @@ const UserPhotoPost = () => {
 
   return (
     <section className={`${styles.photoPost} animeLeft`}>
+      <Head titulo='Poste sua foto'/>
       <form onSubmit={handleSubmit}>
         <Input label="Nome" type="text" name="Nome" {...nome} />
         <Input label="Idade" type="text" name="idade" {...idade} />

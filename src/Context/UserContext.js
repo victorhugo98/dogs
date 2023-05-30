@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { USER_GET, TOKEN_POST, TOKEN_VALIDATE_POST } from "../api";
 
 export const UserContext = React.createContext();
@@ -10,6 +10,14 @@ export const UserStorage = ({ children }) => {
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState(null);
   const navigate = useNavigate();
+  const locaton = useLocation();
+
+  React.useEffect(() => {
+    function scrollUp() {
+      window.scrollTo({ top: "0px" });
+    }
+    scrollUp();
+  }, [locaton.pathname]);
 
   const userLogout = React.useCallback(async () => {
     setData(null);
@@ -63,8 +71,7 @@ export const UserStorage = ({ children }) => {
         } finally {
           setLoading(false);
         }
-      }
-      else setLogin(false)
+      } else setLogin(false);
     }
     autoLogin();
   }, [userLogout]);

@@ -7,6 +7,7 @@ import { UserContext } from "../../Context/UserContext";
 import { useNavigate } from "react-router-dom";
 import useFetch from "../../Hooks/useFetch";
 import Error from "../Helper/Error";
+import Head from "../Helper/Head";
 
 const LoginCreate = () => {
   const username = useForm();
@@ -35,6 +36,8 @@ const LoginCreate = () => {
 
   return (
     <section className="animeLeft">
+      <Head titulo="Crie sua conta" />
+
       <h1 className="title">Criar conta</h1>
       <form onSubmit={handleSubmit}>
         <Input label="Usuário" type="text" name="usename" {...username} />
