@@ -1,6 +1,7 @@
 .comment {
   overflow-y: auto;
   word-break: break-all;
+  padding: 2rem 0;
   padding-left: 2rem;
   padding-right: 2rem;
 }

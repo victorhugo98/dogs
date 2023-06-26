@@ -6,9 +6,22 @@ import { UserContext } from "../../Context/UserContext";
 import PhotoDelete from "./PhotoDelete";
 import Image from "../Helper/Image";
 
-const PhotoContent = ({ data, single }) => {
+const PhotoContent = ({ data, single, setModalPhoto }) => {
   const { photo, comments } = data;
   const user = React.useContext(UserContext);
+
+  React.useEffect(() => {
+    function handleCloseModalByEsc(e) {
+      if (e.key !== "Escape") return;
+      else {
+        setModalPhoto(null);
+      }
+    }
+    window.addEventListener("keyup", handleCloseModalByEsc);
+    return () => {
+      window.removeEventListener("keyup", handleCloseModalByEsc);
+    };
+  }, []);
 
   return (
     <div className={`${styles.photo} ${single ? styles.single : null}`}>

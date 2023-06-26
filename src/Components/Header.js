@@ -7,11 +7,25 @@ import { UserContext } from "../Context/UserContext";
 const Header = () => {
   const { data } = React.useContext(UserContext);
 
+  function handleLogoClick() {
+    const { pathname } = window.location;
+    if (pathname === "/") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  }
 
   return (
     <header className={styles.header}>
       <nav className={`container ${styles.nav}`}>
-        <Link to="/" aria-label="Dogs - Home" className={styles.logo}>
+        <Link
+          onClick={handleLogoClick}
+          to="/"
+          aria-label="Dogs - Home"
+          className={styles.logo}
+        >
           <Dogs />
         </Link>
 
