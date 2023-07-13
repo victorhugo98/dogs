@@ -21,6 +21,21 @@ const PhotoContent = ({ data, single, setModalPhoto }) => {
     return () => {
       window.removeEventListener("keyup", handleCloseModalByEsc);
     };
+  }, [setModalPhoto]);
+
+  React.useEffect(() => {
+    if (!single) {
+      const currentTop = window.scrollY;
+      function stopScroll() {
+        window.scrollTo({ top: currentTop });
+      }
+
+      window.addEventListener("scroll", stopScroll);
+
+      return () => {
+        window.removeEventListener("scroll", stopScroll);
+      };
+    }
   }, []);
 
   return (

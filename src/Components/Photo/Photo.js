@@ -8,11 +8,13 @@ import Head from "../Helper/Head";
 const Photo = () => {
   const { id } = useParams();
   const { request, data, loading, error } = useFetch();
-  
+
   React.useEffect(() => {
     const { url } = PHOTO_GET(id);
     const { response } = request(url);
   }, [request, id]);
+
+
 
   if (error) return <Error error={error} />;
   if (loading) return loading;

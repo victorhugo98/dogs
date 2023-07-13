@@ -46,6 +46,7 @@ const Feed = ({ user }) => {
             setModalPhoto={setModalPhoto}
             user={user}
             setInfinite={setInfinite}
+            infinite={infinite}
           />
         );
       })}

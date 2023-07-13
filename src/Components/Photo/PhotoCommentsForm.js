@@ -36,7 +36,8 @@ const PhotoCommentsForm = (props) => {
       onSubmit={handleSubmit}
     >
       <textarea
-        style={{ opacity: loading ? ".2" : '1'   }}
+        style={{ opacity: loading ? ".2" : "1" }}
+        disabled={loading ? true : false}
         onKeyDown={handleKeyDown}
         className={styles.textarea}
         ref={textArea}
